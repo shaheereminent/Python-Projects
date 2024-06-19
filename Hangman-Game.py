@@ -56,7 +56,7 @@ numbers = ('one two three four five six seven eight nine ten eleven twelve').upp
 vehicles = ('van taxi bus bike crane truck tractor train plane').upper().split()
 
 colors = ('black grey silver tan green blue orange yellow brown wheat navy '
-         'plum gold bisque red coral violet aqua pink purple teal lime salmon ram crimson olive ').upper().split()
+         'plum gold bisque red coral violet aqua pink purple teal lime salmon crimson olive ').upper().split()
 
 animals = ('ant bat bear camel cat cobra crow deer dog duck eagle fox frog goat hawk lion monkey mouse owl panda parrot pigeon python rabbit rat raven '
          'rhino salmon seal shark sheep sloth snake spider swan tiger turkey turtle whale wolf zebra ').upper().split()
@@ -72,7 +72,7 @@ elif random_array_select == 1:
     words = vehicles
     print("Vehicles")
 elif random_array_select == 2:
-    words = vehicles
+    words = colors
     print("Colors")
 else:
     words = animals
