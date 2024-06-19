@@ -51,14 +51,32 @@ HANGMANPICS = ['''
       |
 =========''']
 
-#Word bank of animals
-words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
-         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
-         'goose hawk lion lizard llama mole monkey moose mouse mule newt '
-         'otter owl panda parrot pigeon python rabbit ram rat raven '
-         'rhino salmon seal shark sheep skunk sloth snake spider '
-         'stork swan tiger toad trout turkey turtle weasel whale wolf '
-         'wombat zebra ').upper().split()
+numbers = ('one two three four five six seven eight nine ten eleven twelve').upper().split()
+
+vehicles = ('van taxi bus bike crane truck tractor train plane').upper().split()
+
+colors = ('black grey silver tan green blue orange yellow brown wheat navy '
+         'plum gold bisque red coral violet aqua pink purple teal lime salmon ram crimson olive ').upper().split()
+
+animals = ('ant bat bear camel cat cobra crow deer dog duck eagle fox frog goat hawk lion monkey mouse owl panda parrot pigeon python rabbit rat raven '
+         'rhino salmon seal shark sheep sloth snake spider swan tiger turkey turtle whale wolf zebra ').upper().split()
+
+words = []
+
+random_array_select = random.randint(0,3)
+
+if random_array_select == 0:
+    words = numbers
+    print("Numbers")
+elif random_array_select == 1:
+    words = vehicles
+    print("Vehicles")
+elif random_array_select == 2:
+    words = vehicles
+    print("Colors")
+else:
+    words = animals
+    print("Animals")
 
 random_word = random.choice(words)
 
