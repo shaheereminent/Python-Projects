@@ -6,5 +6,5 @@ split_amount = int(input("How many people to split the bill? "))
 bill_with_tip = tip_amount / 100 * total_bill + total_bill
 each_person = bill_with_tip / split_amount 
 
-print(f"Each person should pay: ${round(each_person, 2)}")
+print(f"Each person should pay: ${round(each_person, 2)} because with tip the bill is {bill_with_tip} and we're diving it with {split_amount}")
 
