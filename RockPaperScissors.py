@@ -44,17 +44,17 @@ player = options[player_choice]
 computer = random.choice(options)
 
 if player == options[0] and computer == options[2]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You won")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Ayesha won")
 elif player == options[2] and computer == options[1]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You won")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Ayesha won")
 elif player == options[1] and computer == options[0]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You won")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Ayesha won")
 elif computer == options[0] and player == options[2]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You lose")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Shaheer won")
 elif computer == options[2] and player == options[1]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You lose")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Shaheer won")
 elif computer == options[1] and player == options[0]:
-    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n You lose")
+    print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n Shaheer won")
 elif computer == options[0] and player == options[0]:
     print(f"You chose {player_choice}:\n{player}\n Computer chose:\n{computer}\n It's a Tie")
 elif computer == options[1] and player == options[1]:
