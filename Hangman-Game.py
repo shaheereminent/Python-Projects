@@ -49,86 +49,66 @@ HANGMANPICS = ['''
  /|\  |
  / \  |
       |
-=========''']
+========='''
+]
 
-numbers = ('one two three four five six seven eight nine ten eleven twelve').upper().split()
+# List of words
+word_list = ["Witches", "Snitches", "Bitches"]
 
-vehicles = ('van taxi bus bike crane truck tractor train plane').upper().split()
+# Choosing random word from the list of words
+chosen_word = random.choice(word_list).lower()
 
-colors = ('black grey silver tan green blue orange yellow brown wheat navy '
-         'plum gold bisque red coral violet aqua pink purple teal lime salmon crimson olive ').upper().split()
+# Printing chosen word
+print(chosen_word)
 
-animals = ('ant bat bear camel cat cobra crow deer dog duck eagle fox frog goat hawk lion monkey mouse owl panda parrot pigeon python rabbit rat raven '
-         'rhino salmon seal shark sheep sloth snake spider swan tiger turkey turtle whale wolf zebra ').upper().split()
+# Creating placeholder to display
+placeholder = ""
 
-words = []
+for letter in chosen_word:
+    placeholder += "_"
 
-random_array_select = random.randint(0,3)
+print(placeholder)
 
-if random_array_select == 0:
-    words = numbers
-    print("Numbers")
-elif random_array_select == 1:
-    words = vehicles
-    print("Vehicles")
-elif random_array_select == 2:
-    words = colors
-    print("Colors")
-else:
-    words = animals
-    print("Animals")
+hangman_lives = len(HANGMANPICS) 
 
-random_word = random.choice(words)
 
-selected_letters = ""
+# Initializing Game State Once False Game will End.
+game_state = True
 
-assigned_index = ""
+# Keeping list of already added letters in the display
+prev_state = []
 
-for l in random_word:
-    selected_letters += "_"
-
-duplicate = []
-
-index_checker = 0
-
-dup_container = 0
-
-wrong_guess = 0
-
-guess_count = 0
-
-while guess_count < len(HANGMANPICS) and random_word != selected_letters:
-    print(selected_letters)
-    guess = input("Guess the letter: ").capitalize()
+# Asking while hangman live exist
+while game_state: 
+    # Asking player to guess a letter
+    guessed_letter = input("Guess a letter: ").lower()
     
-    if guess in selected_letters:
-        index_checker += 1
-        for d in range(random_word.index(guess) + index_checker, len(random_word)):
-            if guess == random_word[d]:
-                duplicate.append(d)
-        selected_letters_list = list(selected_letters)
-        selected_letters_list[duplicate[dup_container]] = guess
-        selected_letters = "".join(selected_letters_list)
-        dup_container += 1
+    # Checking if guessed letter by player is a letter not a number. ~ If number ask again
+    while not guessed_letter.isalpha():
+        guessed_letter = input("Guess a letter: ").lower()
         
-    elif selected_letters == random_word:
-        print(selected_letters)
-    elif guess in random_word:
-        selected_letters_list = list(selected_letters)
-        assigned_index = selected_letters_list[random_word.index(guess)] = guess
-        selected_letters = "".join(selected_letters_list)
-    else:
-        if wrong_guess == 0:
-            print(HANGMANPICS[wrong_guess])
-            wrong_guess += 1
-        else:
-            print(HANGMANPICS[wrong_guess])
-            wrong_guess += 1
+    # Creating display to show player if he guessed the right letter and where it occurs
+    display = ""    
     
-    guess_count += 1
-
-if selected_letters == random_word:
-    print(f"You won: Your guess {selected_letters} was right")
-else:
-    print(HANGMANPICS[-1])
-    print("You lost")
+    # Check if the guessed letter is in the word; reveal it in the display, otherwise show _.
+    for letter in chosen_word:
+        if guessed_letter == letter:
+            display += letter
+            prev_state.append(letter)
+        elif letter in prev_state:
+            display += letter
+        else:
+            display += "_"
+        
+    if guessed_letter not in chosen_word:
+        print(HANGMANPICS[-hangman_lives])
+        hangman_lives -= 1
+        if hangman_lives < 1:
+            game_state = False
+            print("You made the man hanged!")
+    elif "_" not in display:
+        print("You won")
+        game_state = False
+    
+    print(display)
+        
